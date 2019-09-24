@@ -49,7 +49,8 @@ html {overflow-x: hidden;}
         height:4px;
         left:0;
         bottom:-2px;
-        background-color:rgb(144,144,144);      
+        background-color:rgb(144,144,144);   
+        color:rgb(26, 24, 24);   
         visibility:hidden;
         -webkit-transform: scaleX(0);
         transform:scaleX(0);
