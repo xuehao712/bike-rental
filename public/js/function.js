@@ -37,6 +37,9 @@ $(function(){
         case 'product-5':
         $('#product-5-popup').css({display:'block'})
         break;
+        case 'product-6':
+        $('#product-6-popup').css({display:'block'})
+        break;
     }
 })
 
@@ -50,6 +53,22 @@ $(window).on('click',function(event){
 })
 
 $('#shopping-cart-menu').on('click',function(){
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    
+    if(cartItems.hasChildNodes()===true){
+        $('#notify').hide();
+        $('.cart-content').show();
+        $('.cart-total-name').show();
+        $('.cart-total-price').show();
+        $('.cart-checkout').show();
+    }
+    if(cartItems.hasChildNodes()===false){
+        $('.cart-content').hide();
+        $('.cart-total-name').hide();
+        $('.cart-total-price').hide();
+        $('.cart-checkout').hide();
+        $('#notify').show();
+    }
     $('#shopping-cart').css({display:'block'})
 })
 
@@ -59,12 +78,29 @@ $('#shopping-cart-menu').on('click',function(){
 
 
 function checkoutClicked(){
-    alert("success");
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while(cartItems.hasChildNodes() ){
-        cartItems.removeChild(cartItems.firstChild)
+    
+    var cartItems = document.getElementsByClassName('cart-items')[0];
+    var type=cartItems.getElementsByClassName('cart-type');
+    var count=0;
+    for(var i =0; i<type.length;i++){
+        if(type[i].innerText ==="bike"){
+            count++;
+        }
     }
-    updateCartTotal();
+    while(cartItems.hasChildNodes()==true){
+        if(count>0){
+            while(cartItems.hasChildNodes()){
+                cartItems.removeChild(cartItems.firstChild);
+            }
+            updateCartTotal();
+            alert('Successful!')
+        }
+        else {
+            alert("You have to select a bike along with your accessory!");
+            return;
+        }
+    }
+
 }
 
 function addItemClicked(event){
@@ -73,39 +109,42 @@ function addItemClicked(event){
     var name=shopItem.find('.product-name').text();
     var price=shopItem.find('.product-price').text();
     var img=shopItem.find('.product-image').attr('src');
-    addItemToCart(name,price,img);
+    var type=shopItem.find('.product-type').text();
+    addItemToCart(name,price,img,type);
+    alert("The item is successfully added to your cart!")
     updateCartTotal();
+    
  
 }
 
 
-function addItemToCart(name, price, img) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-name')
+function addItemToCart(name, price, img,type) {
+    var cartRow = document.createElement('div');
+    cartRow.classList.add('cart-row');
+    var cartItems = document.getElementsByClassName('cart-items')[0];
+    var cartItemNames = cartItems.getElementsByClassName('cart-name');
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == name) {
-            alert('This item is already added to the cart')
+            alert('This item is already added to the cart.')
             return
         }
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-image" src="${img}" width="100" height="100">
-            <span class="cart-name">${name}</span>
+            <span class="cart-name" >${name}</span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">REMOVE</button>
-        </div>`
+            <button class="remove-cart" type="button">REMOVE</button>
+        </div>
+        <span class="cart-type">${type}</span>`
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('remove-cart')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
-
 
 
 function updateCartTotal() {

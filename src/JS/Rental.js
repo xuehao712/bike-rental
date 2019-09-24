@@ -4,7 +4,7 @@ export default class extends Component{
     render(){
         return(
             <div>
-                <div class="rental-container">
+                <div class="rental-container" id="jump-rental">
                     
                         <h1>Featured Bikes</h1>
                         <div class="bikes-list"> 
@@ -17,7 +17,9 @@ export default class extends Component{
                 <div class="modal">
                     <div class="modal-container" id="shopping-cart" >
                         <div class="cart-popup">
-                            <h3>Shopping Cart</h3>
+                            <div class="cart-header">
+                                <h3>Shopping Cart</h3>
+                            </div>
                             <div class="cart-content">
                                 <span class="cart-header" id="cart-item">Items</span>
                                 <span class="cart-header" id="cart-price">Price</span>
@@ -29,7 +31,10 @@ export default class extends Component{
                             <div id="notify">
                                 There is nothing in your shopping cart!
                             </div>
-                            <h3 class="cart-total-name">Total</h3>
+                            
+                        </div>
+                        <div class="cart-footer">
+                            <h3 class="cart-total-name">Total:</h3>
                             <span class="cart-total-price">$0</span>
                             <button class="cart-checkout">Checkout</button>
                         </div>
