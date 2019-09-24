@@ -82,14 +82,6 @@ html {overflow-x: hidden;}
 }
 
 
-    .home-container .index{
-        position: absolute;
-        left: 300px;
-        bottom: 5px;
-        width: 200px;
-        height: 20px;
-        list-style: none;
-    }
  
     /*bikerental css*/
 
@@ -144,16 +136,23 @@ html {overflow-x: hidden;}
             border:1px solid white;
             display:inline-block;
             white-space: pre-wrap;
+            position: relative;
+            width:300px;
+            height:300px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .shopitem-button{
+            position: absolute;
+            margin-left:25px;
+            
         }
         #popup-close{
             color:rgb(144,144,144); 
-            float:right;
             font-size:40px;
             font-weight:bold;
             cursor:pointer;
-            position:relative;
-            top:-20px;
-            
+            position: absolute; 
+            margin-top:-35px;
         }
     .product-1-info,.product-2-info,
     .product-3-info,.product-4-info,
@@ -161,19 +160,132 @@ html {overflow-x: hidden;}
         text-align:center;
         display:inline-block;
     }
-    .day-selection,.quantity-selection,.modal input{
-        display:block;
-        margin:auto;
-        margin-bottom:10px;
-    }
-    
+   
 
+    .product-type,.cart-type{
+        display:none;
+    }
     .cart-popup{
         margin:auto;
-        padding:15px;
-        background-color:white;
+        font-family: 'Josefin Sans', sans-serif;
+        background-color:rgb(235, 235, 243);
+        width:50%;
+        height:50%;
+       
+        overflow:auto;
+    }
+    .cart-footer{
+        margin:auto;
+        width:50%;
+        background-color:rgb(235, 235, 243);
+        position:relative;
+        display: inline-block;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    .cart-header{
+        display: inline-block;
+        margin-top:20px;
+        text-align: center;
+    }
+    #notify{
+        text-align: center;
+        margin-top:20%;
+        font-size:30px;
+    }
+    .cart-content{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        border-bottom: 3px solid rgb(83, 83, 95);
+        
+    }
+    .cart-row{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        border-bottom: 3px solid rgb(83, 83, 95);
+        align-items:center;
+        
+        
+    }
+    .cart-column{
+        display: flex;
+        align-items:center;
     }
 
+    .cart-price{
+        margin-right:auto;
+    }
+    .remove-cart{
+        margin-left:30px;
+        margin-top:-10px;
+    }
+    .cart-quantity{
+        margin-right:50px;
+    }
+    
+   
+    .cart-item {
+        width: 45%;
+        margin-left:20px;
+    }
+    .cart-name{
+        margin-left:20px;
+    }
+    .cart-quantity-input{
+        width:30px;
+    }
+    .remove-cart{
+        border: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        background-color:rgb(231, 126, 126);
+        color:white;
+    }
+    .cart-checkout{
+        border: none;
+        display: inline-block;
+        font-size: 20px;
+        border-radius:12px;
+        right:15px;
+    }
+   
+    .cart-total-price,.cart-checkout{
+        position: absolute;
+        bottom:20px;
+    }
+    .cart-total-name{
+        position: absolute;
+        right:165px;
+        bottom:0px;
+    }
+    .cart-total-price{
+        right:125px;
+    } 
+
+
+
+    /*********Location CSS******************************************************************/
+
+    .location-container{ 
+        position: relative;
+        width:100%;
+        height:50vh;
+    }
+    #location-map{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        width:100%;
+        height:100%;
+        position: absolute;
+        bottom:0;
+    }
     
        
    
