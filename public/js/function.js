@@ -110,8 +110,8 @@ function addItemClicked(event){
     var price=shopItem.find('.product-price').text();
     var img=shopItem.find('.product-image').attr('src');
     var type=shopItem.find('.product-type').text();
+   
     addItemToCart(name,price,img,type);
-    alert("The item is successfully added to your cart!")
     updateCartTotal();
     
  
@@ -123,12 +123,23 @@ function addItemToCart(name, price, img,type) {
     cartRow.classList.add('cart-row');
     var cartItems = document.getElementsByClassName('cart-items')[0];
     var cartItemNames = cartItems.getElementsByClassName('cart-name');
+    var count=0;
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == name) {
-            alert('This item is already added to the cart.')
+            count++;
+        }
+    }
+    
+    if(cartItems.hasChildNodes()==false||count==0){
+        alert("You have successfully added your item!");
+    }
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == name) {
+            alert('This item is already added to the cart.');
             return
         }
     }
+    
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-image" src="${img}" width="100" height="100">

@@ -28,7 +28,7 @@ html {overflow-x: hidden;}
         font-size:25px;
         font-style:bold;
         position:relative;
-       
+       color:rgb(26, 24, 24);
     }
     
     .primary-menu a:visited{
@@ -49,7 +49,8 @@ html {overflow-x: hidden;}
         height:4px;
         left:0;
         bottom:-2px;
-        background-color:rgb(144,144,144);      
+        background-color:rgb(144,144,144);   
+        color:rgb(26, 24, 24);   
         visibility:hidden;
         -webkit-transform: scaleX(0);
         transform:scaleX(0);
@@ -77,8 +78,6 @@ html {overflow-x: hidden;}
     width: 100%; 
     height: 95vh;
     overflow: hidden;
-    
-    
 }
 
 
@@ -88,8 +87,8 @@ html {overflow-x: hidden;}
     .rental-container{
         width:100%;
         height:70vh;
-      
-        
+        overflow: auto;
+        min-height: 70vh;
     }
         .rental-container h1{
             text-align: center;
@@ -100,8 +99,9 @@ html {overflow-x: hidden;}
             padding: 0;
             margin: 0;
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: wrap;
             justify-content: space-around;
+            overflow: auto;
         }
         .rental-container input{
             margin-top:10px;
@@ -144,7 +144,7 @@ html {overflow-x: hidden;}
         .shopitem-button{
             position: absolute;
             margin-left:25px;
-            
+            border-radius:12px;
         }
         #popup-close{
             color:rgb(144,144,144); 
@@ -276,6 +276,8 @@ html {overflow-x: hidden;}
         position: relative;
         width:100%;
         height:50vh;
+        clear:both;
+       
     }
     #location-map{
         display: flex;
@@ -286,6 +288,33 @@ html {overflow-x: hidden;}
         position: absolute;
         bottom:0;
     }
+
+
+    /********Copyright CSS****************/
+
+    .copyright-container{
+        width:100%; 
+       height: 5vh;
+    
+          
+    }
+        .copyright-container span{
+            margin:auto;
+            font-family: 'Josefin Sans', sans-serif;
+            padding:15px;
+            display: inline-block;
+        }
+
+
+        @media only screen and(max-width:500px){
+            .rental-container input{
+                width:100%;
+                height:100%;
+            }
+            .rental-container{
+                height:40vh;
+            }
+        }
     
        
    
