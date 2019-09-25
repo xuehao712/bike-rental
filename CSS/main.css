@@ -78,7 +78,6 @@ html {overflow-x: hidden;}
     width: 100%; 
     height: 95vh;
     overflow: hidden;
-
 }
 
 
@@ -145,7 +144,7 @@ html {overflow-x: hidden;}
         .shopitem-button{
             position: absolute;
             margin-left:25px;
-            
+            border-radius:12px;
         }
         #popup-close{
             color:rgb(144,144,144); 
